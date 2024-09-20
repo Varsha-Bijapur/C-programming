@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+    int arr[100], i, n;
+    scanf("%d", &n);
+    
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);   // Use &arr[i] to read input into the array
+    }
+
+    // Initialize min to the first element of the array
+    int min = arr[0];
+
+    // Iterate through the array to find the minimum
+    for (i = 1; i < n; i++) {
+        if (arr[i] < min) {
+            min = arr[i];    // Update min if a smaller element is found
+        }
+    }
+
+    printf("Minimum value: %d\n", min);  // Print the minimum value
+    
+    return 0;
+}
