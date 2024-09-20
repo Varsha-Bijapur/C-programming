@@ -1,0 +1,12 @@
+#include <stdio.h>
+int main(){
+    int arr[100],i,n, sum=0, avg;
+    scanf("%d", &n);
+    for (i=0; i<n; i++){
+        scanf("%d", &arr[i]); //reads the array
+        sum += arr[i];        //sums the elements of the array
+        avg = sum/n;
+    }
+    printf("average = %d", avg);
+    return 0;
+}
