@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int main(){
+    int arr[100], n, i, j, temp=0;
+    
+    scanf("%d", &n);
+    for (i = 0; i < n; i++){
+        scanf("%d", &arr[i]);
+    }
+    
+    for (i = 0; i < n; i++){
+        for (j = i + 1; j < n; j++){
+            if (arr[j] < arr[i]){
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    
+    if (n%2 != 0){
+        int median = arr[n/2];
+        printf("%d", median);
+    }
+    else {
+        int v1 = arr[n/2];
+        int v2 = arr[n/2-1];
+        float median = (v1+v2)/2.0;
+        printf("%.1f", median);
+    }
+    
+    printf("\n");  
+
+    return 0;
+}
+
