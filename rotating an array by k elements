@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+void swap(int arr[], int begin, int end, int d){
+    int temp;
+    for (int i=0; i<d; i++){
+        temp = arr[begin+i];
+        arr[begin+i] = arr[end+i];
+        arr[end+i] = temp;
+    }
+}
+
+void rotate(int arr[], int n, int d){
+    if (d ==0 | d==n){
+        return ;
+    }
+    if (d<(n-d)){
+        swap(arr, 0, n-d, d);
+        rotate(arr, n-d, d);
+    }
+    else{
+        swap(arr, 0, d, n-d);
+        rotate(arr+n-d, d, 2*d-n);
+    }
+}
+
+void printarr(int arr[], int n){
+    for (int i=0; i<n; i++){
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
+int main(){
+    int arr[] = {1, 2, 3, 4, 5, 6, 7};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int k = 3;   
+    
+    rotate(arr,n,k);
+    printarr(arr, n);
+    
+    return 0;
+}
